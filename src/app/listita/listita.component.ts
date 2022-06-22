@@ -27,7 +27,7 @@ export class ListitaComponent implements OnInit {
   }
 
   checkTarea(index: number): void {
-    this.todoList[index].isDone = true;
+    this.todoList[index].isDone = !this.todoList[index].isDone;
   }
 
   deleteDone(): void {
@@ -41,9 +41,8 @@ export class ListitaComponent implements OnInit {
 
   restorePostpone(): void {
     this.todoList = this.todoList.concat(this.postponedList);
+    this.postponedList = [];
 
-    console.log(this.todoList);
-    console.log(this.postponedList);
   }
 
   removeTarea(index:number){
