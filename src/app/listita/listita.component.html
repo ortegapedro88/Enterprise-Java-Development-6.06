@@ -1,0 +1,30 @@
+<h1>To-Do List</h1>
+<label for="todo-add">Tarea:</label>
+<input type="text" name="todo-add" [(ngModel)]="tarea" placeholder="Ingrese nueva tarea" >
+<button (click)="addTarea()">Agregar Tareita</button>
+
+
+<div></div>
+
+<ul>
+        <div *ngFor="let element of todoList, let index = index">
+        <li *ngIf="!element.isDone">{{element.name}}</li>
+        <li *ngIf="element.isDone" style="background-color: green;">{{element.name}}</li>
+        <button (click)="postponeTarea(index)"><img src="https://memegenerator.net/img/instances/41608550.jpg" alt="remove icon" style="width: 100px;"></button>
+        <button (click)="checkTarea(index)"><img src="https://i.ytimg.com/vi/ECuziL8aMzI/maxresdefault.jpg" alt="remove icon" style="width: 100px;"></button>
+
+
+    <button (click)="removeTarea(index)"><img src="https://m.media-amazon.com/images/I/51cjKVTdtlL._AC_SL1000_.jpg" alt="remove icon" style="width: 25px;"></button>
+    <!-- <button (click)="removeTarea(index)"><img src="https://i.ytimg.com/vi/ECuziL8aMzI/maxresdefault.jpg" alt="remove icon" style="width: 25px;"></button> -->
+            
+    <img src="" alt="edit icon" style="width: 25px;">
+
+
+        <button (click)="editTarea(index)"><img src="Enterprise-Java-Development-6.06\images\edith.png" alt="edit icon" style="width: 25px;"></button>
+        <label *ngIf="element.isEdit" for="todo-add">Edit Tarea:</label>
+        <input *ngIf="element.isEdit" type="text" name="todo-add" [(ngModel)]="editTareaName" placeholder="Ingrese nuevo nombre tarea" >
+        <button *ngIf="element.isEdit" (click)="guardarTarea(index)">Guardar cambios</button>
+    </div>
+    <button (click)="deleteDone()">DELETE DONE TAREAS</button>
+    <button (click)="restorePostpone()">RESTORE TAREAS POSPONIDAS</button>
+    </ul>
