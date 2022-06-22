@@ -1,4 +1,10 @@
 .title{
     font-family: 'Lobster', cursive;
+    font-size: 90px;
+    text-decoration: underline;
+}
+
+.task{
+    font-family: 'Lobster', cursive;
     font-size: 70px;
 }

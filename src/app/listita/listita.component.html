@@ -1,4 +1,8 @@
-<h1 class="title">To-Do List</h1>
+<div style="display: flex; flex-direction: row; ">
+
+    <h1 class="title">To-Do List</h1> <img src="https://c.tenor.com/0L7ORkuhrtUAAAAC/patrick-star-to-do-list.gif" style="width: 200px; margin-left: 50px;">
+</div>
+
 <label for="todo-add">Tarea:</label>
 <input type="text" name="todo-add" [(ngModel)]="tarea" placeholder="Ingrese nueva tarea" >
 <button (click)="addTarea()">Agregar Tareita</button>
@@ -8,8 +12,8 @@
 
 <ul>
         <div *ngFor="let element of todoList, let index = index">
-        <li class="title" *ngIf="!element.isDone">{{element.name}}</li>
-        <li class="title" *ngIf="element.isDone" style="background-color: green;">{{element.name}}</li>
+        <li class="task" *ngIf="!element.isDone">{{element.name}}</li>
+        <li class="task" *ngIf="element.isDone"><span style="background-color: green;">{{element.name}}</span></li>
         <button (click)="postponeTarea(index)"><img src="https://memegenerator.net/img/instances/41608550.jpg" alt="remove icon" style="width: 150px; height: 150px;"></button>
         <button (click)="checkTarea(index)"><img src="https://i.ytimg.com/vi/ECuziL8aMzI/maxresdefault.jpg" alt="remove icon" style="width: 150px; height: 150px;"></button>
   <button (click)="removeTarea(index)"><img src="https://m.media-amazon.com/images/I/51cjKVTdtlL._AC_SL1000_.jpg" alt="remove icon" style="width: 150px; height: 150px;"></button>
@@ -24,6 +28,6 @@
 
     <h3 *ngIf="postponedList.length > 0" class="title">Postponed Tareas</h3>  
     <div *ngFor="let element of postponedList, let index = index">
-        <li class="title" *ngIf="!element.isDone">{{element.name}}</li>
-        <li class="title" *ngIf="element.isDone" style="background-color: green;">{{element.name}}</li>
+        <li class="task" *ngIf="!element.isDone">{{element.name}}</li>
+        <li class="task" *ngIf="element.isDone" ><span style="background-color: green;">{{element.name}}</span></li>
     </div>
